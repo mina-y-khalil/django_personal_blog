@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blog/post-detail.css' %}" />
+<link rel="stylesheet" href="{% static 'blog/index.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<section id="summary">
+  <header>
+    <h2>{{ post.title }}</h2>
+  </header>
+  {% if post.image %}
+    <img src="{{ post.image.url }}" alt="{{ post.title }}" />
+  {% endif %}
+  <p>{{ post.content }}</p>
+</section>
+
+{% endblock %}
+

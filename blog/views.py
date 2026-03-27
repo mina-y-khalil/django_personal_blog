@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Post
 
 # Create your views here.
 def starting_page(request):
@@ -7,7 +8,8 @@ def starting_page(request):
 
 
 def posts(request):
-    pass
+    all_posts = Post.objects.all().order_by('-date')
+    return render(request, 'blog/all-posts.html', {'posts': all_posts})
 
 
 
