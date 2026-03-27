@@ -14,11 +14,22 @@
   <header>
     <h2>{{ post.title }}</h2>
   </header>
-  {% if post.image %}
-    <img src="{{ post.image.url }}" alt="{{ post.title }}" />
-  {% endif %}
-  <p>{{ post.content }}</p>
+  <article>
+    {% if post.image %}
+      <img src="{{ post.image.url }}" alt="{{ post.title }}" />
+    {% else %}
+      <img src="{% static 'blog/images/code.jpg' %}" alt="{{ post.title }}" />
+    {% endif %}
+    <div>
+      <time>{{ post.date }}</time>
+    </div>
+  </article>
 </section>
+
+<main>
+  <p>{{ post.excerpt }}</p>
+  <p>{{ post.content }}</p>
+</main>
 
 {% endblock %}
 

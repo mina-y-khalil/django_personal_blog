@@ -22,17 +22,11 @@
 <section id="latest-posts">
   <h2>Latest Posts</h2>
   <ul>
-    <li>
-      <article class="post">
-        <a href="">
-          <img src="{% static "blog/images/code.jpg" %}" alt="Post 1" />
-          <div class="post__content">
-            <h3>Post 1 is here!</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.</p>
-          </div>
-        </a>
-      </article>
-    </li>
+    {% for post in posts %}
+      {% include "blog/includes/post.html" %}
+    {% empty %}
+      <p>No posts yet.</p>
+    {% endfor %}
   </ul>
 </section>
 
